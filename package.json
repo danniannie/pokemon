@@ -1,0 +1,24 @@
+{
+  "name": "fun-pokemon-battler",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "mocha spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danniannie/fun-pokemon-battler.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danniannie/fun-pokemon-battler/issues"
+  },
+  "homepage": "https://github.com/danniannie/fun-pokemon-battler#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
+  }
+}
