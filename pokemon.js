@@ -3,7 +3,7 @@ function Pokemon(
   health,
   attackDamage,
   sound,
-  type = 'normal',
+  type = "normal",
   favouriteMove
 ) {
   this.name = name;
@@ -26,5 +26,15 @@ function Trainer(name) {
   this.name = name;
   this.storage = {};
 }
+Trainer.prototype.catch = function(pokemon) {
+  this.storage[pokemon.name] = pokemon;
+};
 
-module.exports = { Pokemon, Trainer };
+function Battle(player1, p1Pokemon, player2, p2Pokemon) {
+  this.player1 = player1;
+  this.player2 = player2;
+  this.p1Pokemon = { ...p1Pokemon };
+  this.p2Pokemon = { ...p2Pokemon };
+}
+
+module.exports = { Pokemon, Trainer, Battle };
