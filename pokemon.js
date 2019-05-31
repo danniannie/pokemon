@@ -6,7 +6,7 @@ class Pokemon {
     health,
     attackDamage,
     sound,
-    type = 'normal',
+    type = "normal",
     favouriteMove
   ) {
     this.name = name;
@@ -29,8 +29,22 @@ class Pokemon {
 class Fire extends Pokemon {
   constructor(name, health, attackDamage, sound, type, favouriteMove) {
     super(name, health, attackDamage, sound, type, favouriteMove);
-    this.strength = 'grass';
-    this.weakness = 'water';
+    this.strength = "grass";
+    this.weakness = "water";
+  }
+}
+class Grass extends Pokemon {
+  constructor(name, health, attackDamage, sound, type, favouriteMove) {
+    super(name, health, attackDamage, sound, type, favouriteMove);
+    this.strength = "water";
+    this.weakness = "fire";
+  }
+}
+class Water extends Pokemon {
+  constructor(name, health, attackDamage, sound, type, favouriteMove) {
+    super(name, health, attackDamage, sound, type, favouriteMove);
+    this.strength = "fire";
+    this.weakness = "grass";
   }
 }
 
@@ -53,21 +67,31 @@ class Battle {
     this.p2Pokemon = p2Pokemon;
     this.turn = 1;
   }
+  fight() {
+    const player2Pokemon = this.player2.storage[this.p2Pokemon];
+    const player1Pokemon = this.player1.storage[this.p1Pokemon];
+    if (this.turn === 1) {
+      if (player2Pokemon.strength === player1Pokemon.type) {
+        player2Pokemon.health -= player1Pokemon.attackDamage * 0.75;
+      } else if (player2Pokemon.weakness === player1Pokemon.type) {
+        player2Pokemon.health -= player1Pokemon.attackDamage * 1.25;
+      } else {
+        player2Pokemon.health -= player1Pokemon.attackDamage;
+      }
+      this.turn += 1;
+    }
+    //////////////
+    else {
+      if (player1Pokemon.strength === player2Pokemon.type) {
+        player1Pokemon.health -= player2Pokemon.attackDamage * 0.75;
+      } else if (player1Pokemon.weakness === player2Pokemon.type) {
+        player1Pokemon.health -= player2Pokemon.attackDamage * 1.25;
+      } else {
+        player1Pokemon.health -= player2Pokemon.attackDamage;
+      }
+      this.turn -= 1;
+    }
+  }
 }
 
-Battle.prototype.fight = function() {
-  if (this.turn === 1) {
-    this.player2.storage[this.p2Pokemon].health -= this.player1.storage[
-      this.p1Pokemon
-    ].attackDamage;
-    this.turn += 1;
-  }
-  if (this.turn === 2) {
-    this.player1.storage[this.p1Pokemon].health -= this.player2.storage[
-      this.p2Pokemon
-    ].attackDamage;
-    this.turn -= 1;
-  }
-};
-
-module.exports = { Pokemon, Trainer, Battle };
+module.exports = { Pokemon, Trainer, Battle, Fire, Water, Grass };
