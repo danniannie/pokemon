@@ -178,7 +178,7 @@ describe('Battle', () => {
         'Jacob\'s Squirtle has attacked Danni\'s Charmander with 37.5 damage'
       );
     });
-    it('returns a message after attack depending on the strength/weaknesses', () => {
+    it('returns a message after when one pokemon has fainted (health points at 0 or below)', () => {
       const Danni = new Trainer('Danni');
       const Jacob = new Trainer('Jacob');
       const charmander = new Fire(

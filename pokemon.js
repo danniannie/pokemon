@@ -72,60 +72,76 @@ class Battle {
   fight() {
     const player2Pokemon = this.player2.storage[this.p2Pokemon];
     const player1Pokemon = this.player1.storage[this.p1Pokemon];
+    let gameOver = false;
     let message = '';
-    if (this.turn === 1) {
-      if (player2Pokemon.strength === player1Pokemon.type) {
-        player2Pokemon.health -= player1Pokemon.attackDamage * 0.75;
-        message = `${this.player1.name}'s ${player1Pokemon.name} has attacked ${
-          this.player2.name
-        }'s ${player2Pokemon.name} with ${player1Pokemon.attackDamage *
-          0.75} damage`;
-      } else if (player2Pokemon.weakness === player1Pokemon.type) {
-        player2Pokemon.health -= player1Pokemon.attackDamage * 1.25;
-        message = `${this.player1.name}'s ${player1Pokemon.name} has attacked ${
-          this.player2.name
-        }'s ${player2Pokemon.name} with ${player1Pokemon.attackDamage *
-          1.25} damage`;
-      } else {
-        player2Pokemon.health -= player1Pokemon.attackDamage;
-        message = `${this.player1.name}'s ${player1Pokemon.name} has attacked ${
-          this.player2.name
-        }'s ${player2Pokemon.name} with ${player1Pokemon.attackDamage} damage`;
+    if (gameOver === false) {
+      if (this.turn === 1) {
+        if (player2Pokemon.strength === player1Pokemon.type) {
+          player2Pokemon.health -= player1Pokemon.attackDamage * 0.75;
+          message = `${this.player1.name}'s ${
+            player1Pokemon.name
+          } has attacked ${this.player2.name}'s ${
+            player2Pokemon.name
+          } with ${player1Pokemon.attackDamage * 0.75} damage`;
+        } else if (player2Pokemon.weakness === player1Pokemon.type) {
+          player2Pokemon.health -= player1Pokemon.attackDamage * 1.25;
+          message = `${this.player1.name}'s ${
+            player1Pokemon.name
+          } has attacked ${this.player2.name}'s ${
+            player2Pokemon.name
+          } with ${player1Pokemon.attackDamage * 1.25} damage`;
+        } else {
+          player2Pokemon.health -= player1Pokemon.attackDamage;
+          message = `${this.player1.name}'s ${
+            player1Pokemon.name
+          } has attacked ${this.player2.name}'s ${player2Pokemon.name} with ${
+            player1Pokemon.attackDamage
+          } damage`;
+        }
+        if (player2Pokemon.health <= 0) {
+          gameOver = true;
+          message = `${player2Pokemon.name} has fainted`;
+        }
+        this.turn += 1;
+        console.log(message);
+        return message;
       }
-      if (player2Pokemon.health <= 0) {
-        message = `${player2Pokemon.name} has fainted`;
+      //////////////
+      else {
+        if (player1Pokemon.strength === player2Pokemon.type) {
+          player1Pokemon.health -= player2Pokemon.attackDamage * 0.75;
+          message = `${this.player2.name}'s ${
+            player2Pokemon.name
+          } has attacked ${this.player1.name}'s ${
+            player1Pokemon.name
+          } with ${player2Pokemon.attackDamage * 0.75} damage`;
+        } else if (player1Pokemon.weakness === player2Pokemon.type) {
+          player1Pokemon.health -= player2Pokemon.attackDamage * 1.25;
+          message = `${this.player2.name}'s ${
+            player2Pokemon.name
+          } has attacked ${this.player1.name}'s ${
+            player1Pokemon.name
+          } with ${player2Pokemon.attackDamage * 1.25} damage`;
+        } else {
+          player1Pokemon.health -= player2Pokemon.attackDamage;
+          message = `${this.player2.name}'s ${
+            player2Pokemon.name
+          } has attacked ${this.player1.name}'s ${player1Pokemon.name} with ${
+            player2Pokemon.attackDamage
+          } damage`;
+        }
+        if (player1Pokemon.health <= 0) {
+          gameOver = true;
+          message = `${player1Pokemon.name} has fainted`;
+        }
+        this.turn -= 1;
+        console.log(message);
+        return message;
       }
-      this.turn += 1;
-      console.log(message);
-      return message;
+    } else {
+      return "The game has ended"
     }
-    //////////////
-    else {
-      if (player1Pokemon.strength === player2Pokemon.type) {
-        player1Pokemon.health -= player2Pokemon.attackDamage * 0.75;
-        message = `${this.player2.name}'s ${player2Pokemon.name} has attacked ${
-          this.player1.name
-        }'s ${player1Pokemon.name} with ${player2Pokemon.attackDamage *
-          0.75} damage`;
-      } else if (player1Pokemon.weakness === player2Pokemon.type) {
-        player1Pokemon.health -= player2Pokemon.attackDamage * 1.25;
-        message = `${this.player2.name}'s ${player2Pokemon.name} has attacked ${
-          this.player1.name
-        }'s ${player1Pokemon.name} with ${player2Pokemon.attackDamage *
-          1.25} damage`;
-      } else {
-        player1Pokemon.health -= player2Pokemon.attackDamage;
-        message = `${this.player2.name}'s ${player2Pokemon.name} has attacked ${
-          this.player1.name
-        }'s ${player1Pokemon.name} with ${player2Pokemon.attackDamage} damage`;
-      }
-      if (player1Pokemon.health <= 0) {
-        message = `${player1Pokemon.name} has fainted`;
-      }
-      this.turn -= 1;
-      console.log(message);
-      return message;
-    }
+  }
   }
 }
 
