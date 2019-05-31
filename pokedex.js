@@ -4,9 +4,9 @@ const { Pokemon, Fire, Water, Grass } = require("./pokemon");
 //
 //
 
-const squirtle = new Water("Squirtle", 50, 30, "shshhshs", "water", "fight");
+const squirtle = new Water("squirtle", 50, 30, "shshhshs", "water", "fight");
 const charmander = new Fire(
-  "Charmander",
+  "charmander",
   60,
   20,
   "rawwwwwwwwrrr",
@@ -14,7 +14,7 @@ const charmander = new Fire(
   "breath fire"
 );
 const bulbasaur = new Grass(
-  "Bulbasaur",
+  "bulbasaur",
   50,
   10,
   "bulba bulba bulba",
@@ -22,10 +22,11 @@ const bulbasaur = new Grass(
   "overgrow"
 );
 const jigglypuff = new Pokemon(
-  "Jigglypuff",
+  "jigglypuff",
   100,
   20,
   "jiggly jiggly",
   "normal",
   "sing"
 );
+module.exports = { squirtle, charmander, bulbasaur, jigglypuff };
