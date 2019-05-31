@@ -6,7 +6,7 @@ class Pokemon {
     health,
     attackDamage,
     sound,
-    type = 'normal',
+    type = "normal",
     favouriteMove
   ) {
     this.name = name;
@@ -15,8 +15,8 @@ class Pokemon {
     this.sound = sound;
     this.type = type;
     this.favouriteMove = favouriteMove;
-    this.strength = '';
-    this.weakness = '';
+    this.strength = "";
+    this.weakness = "";
   }
   talk() {
     // a method to allow the pokemon to 'talk' returning it's sound (stored in the prototype of the pokemon function)
@@ -31,22 +31,22 @@ class Pokemon {
 class Fire extends Pokemon {
   constructor(name, health, attackDamage, sound, type, favouriteMove) {
     super(name, health, attackDamage, sound, type, favouriteMove);
-    this.strength = 'grass';
-    this.weakness = 'water';
+    this.strength = "grass";
+    this.weakness = "water";
   }
 }
 class Grass extends Pokemon {
   constructor(name, health, attackDamage, sound, type, favouriteMove) {
     super(name, health, attackDamage, sound, type, favouriteMove);
-    this.strength = 'water';
-    this.weakness = 'fire';
+    this.strength = "water";
+    this.weakness = "fire";
   }
 }
 class Water extends Pokemon {
   constructor(name, health, attackDamage, sound, type, favouriteMove) {
     super(name, health, attackDamage, sound, type, favouriteMove);
-    this.strength = 'fire';
-    this.weakness = 'grass';
+    this.strength = "fire";
+    this.weakness = "grass";
   }
 }
 
@@ -68,13 +68,14 @@ class Battle {
     this.p1Pokemon = p1Pokemon;
     this.p2Pokemon = p2Pokemon;
     this.turn = 1;
+    this.gameOver = false;
   }
   fight() {
     const player2Pokemon = this.player2.storage[this.p2Pokemon];
     const player1Pokemon = this.player1.storage[this.p1Pokemon];
-    let gameOver = false;
-    let message = '';
-    if (gameOver === false) {
+
+    let message = "";
+    if (this.gameOver === false) {
       if (this.turn === 1) {
         if (player2Pokemon.strength === player1Pokemon.type) {
           player2Pokemon.health -= player1Pokemon.attackDamage * 0.75;
@@ -99,7 +100,7 @@ class Battle {
           } damage`;
         }
         if (player2Pokemon.health <= 0) {
-          gameOver = true;
+          this.gameOver = true;
           message = `${player2Pokemon.name} has fainted`;
         }
         this.turn += 1;
@@ -131,7 +132,7 @@ class Battle {
           } damage`;
         }
         if (player1Pokemon.health <= 0) {
-          gameOver = true;
+          this.gameOver = true;
           message = `${player1Pokemon.name} has fainted`;
         }
         this.turn -= 1;
@@ -139,9 +140,9 @@ class Battle {
         return message;
       }
     } else {
-      return "The game has ended"
+      console.log("The game has ended");
+      return "The game has ended";
     }
-  }
   }
 }
 
