@@ -115,9 +115,9 @@ describe('Battle', () => {
       testBattle.fight();
 
       expect(Jacob.storage.Eevee.health).to.equal(50);
-      // console.log(Danni);
+      
       testBattle.fight();
-      // console.log(Danni);
+      
       expect(Danni.storage.Jigglypuff.health).to.equal(190);
       testBattle.fight();
       expect(Jacob.storage.Eevee.health).to.equal(0);

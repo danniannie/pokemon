@@ -1,12 +1,10 @@
-//create a pokemon will various different attributes
-
 class Pokemon {
   constructor(
     name,
     health,
     attackDamage,
     sound,
-    type = "normal",
+    type = 'normal',
     favouriteMove
   ) {
     this.name = name;
@@ -15,49 +13,47 @@ class Pokemon {
     this.sound = sound;
     this.type = type;
     this.favouriteMove = favouriteMove;
-    this.strength = "";
-    this.weakness = "";
+    this.strength = '';
+    this.weakness = '';
   }
   talk() {
-    // a method to allow the pokemon to 'talk' returning it's sound (stored in the prototype of the pokemon function)
-    return this.sound; //accessing the sound from the pokemon it's bound to.
+    return this.sound;
   }
-  // a method to returns it's favourite move(stored in the prototype of the pokemon function)
+
   useYourMoves() {
-    return this.favouriteMove; //Accessing the pokemon it's bound to.
+    return this.favouriteMove;
   }
 }
 
 class Fire extends Pokemon {
   constructor(name, health, attackDamage, sound, type, favouriteMove) {
     super(name, health, attackDamage, sound, type, favouriteMove);
-    this.strength = "grass";
-    this.weakness = "water";
+    this.strength = 'grass';
+    this.weakness = 'water';
   }
 }
 class Grass extends Pokemon {
   constructor(name, health, attackDamage, sound, type, favouriteMove) {
     super(name, health, attackDamage, sound, type, favouriteMove);
-    this.strength = "water";
-    this.weakness = "fire";
+    this.strength = 'water';
+    this.weakness = 'fire';
   }
 }
 class Water extends Pokemon {
   constructor(name, health, attackDamage, sound, type, favouriteMove) {
     super(name, health, attackDamage, sound, type, favouriteMove);
-    this.strength = "fire";
-    this.weakness = "grass";
+    this.strength = 'fire';
+    this.weakness = 'grass';
   }
 }
 
 class Trainer {
-  //creating a new trainer with a parameter of name with the ability to store a number of Pokemon in an object
   constructor(name) {
     this.name = name;
     this.storage = {};
   }
   catch(pokemon) {
-    this.storage[pokemon.name] = pokemon; //a method to catch pokemon and store into the trainer's storage - again bound to the trainer it is called against
+    this.storage[pokemon.name] = pokemon;
   }
 }
 
@@ -74,7 +70,7 @@ class Battle {
     const player2Pokemon = this.player2.storage[this.p2Pokemon];
     const player1Pokemon = this.player1.storage[this.p1Pokemon];
 
-    let message = "";
+    let message = '';
     if (this.gameOver === false) {
       if (this.turn === 1) {
         if (player2Pokemon.strength === player1Pokemon.type) {
@@ -106,9 +102,7 @@ class Battle {
         this.turn += 1;
         console.log(message);
         return message;
-      }
-      //////////////
-      else {
+      } else if (this.turn === 2) {
         if (player1Pokemon.strength === player2Pokemon.type) {
           player1Pokemon.health -= player2Pokemon.attackDamage * 0.75;
           message = `${this.player2.name}'s ${
@@ -140,8 +134,8 @@ class Battle {
         return message;
       }
     } else {
-      console.log("The game has ended");
-      return "The game has ended";
+      console.log('The game has ended');
+      return 'The game has ended';
     }
   }
 }

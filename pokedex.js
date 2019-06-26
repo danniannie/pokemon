@@ -1,32 +1,28 @@
-const { Pokemon, Fire, Water, Grass } = require("./pokemon");
-//
-//
-//
-//
+const { Pokemon, Fire, Water, Grass } = require('./pokemon');
 
-const squirtle = new Water("squirtle", 50, 30, "shshhshs", "water", "fight");
+const squirtle = new Water('squirtle', 50, 30, 'shshhshs', 'water', 'fight');
 const charmander = new Fire(
-  "charmander",
+  'charmander',
   60,
   20,
-  "rawwwwwwwwrrr",
-  "fire",
-  "breath fire"
+  'rawwwwwwwwrrr',
+  'fire',
+  'breath fire'
 );
 const bulbasaur = new Grass(
-  "bulbasaur",
+  'bulbasaur',
   50,
   10,
-  "bulba bulba bulba",
-  "grass",
-  "overgrow"
+  'bulba bulba bulba',
+  'grass',
+  'overgrow'
 );
 const jigglypuff = new Pokemon(
-  "jigglypuff",
+  'jigglypuff',
   100,
   20,
-  "jiggly jiggly",
-  "normal",
-  "sing"
+  'jiggly jiggly',
+  'normal',
+  'sing'
 );
 module.exports = { squirtle, charmander, bulbasaur, jigglypuff };
