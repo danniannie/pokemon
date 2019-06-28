@@ -6,17 +6,21 @@ Pokemon Battler provides a simplifed version of the well-known Pokemon game in w
 
 Clone this repository on your local machine.
 
+```
 When you are in the repo, npm i to install the relevant dependencies.
 
 When you would like to play, use the script: npm start
+```
 
 ### Prerequisites
 
 To run this you will need:
 
+```
 Node - https://nodejs.org/en/
 
 Inquirier - https://www.npmjs.com/package/inquirer
+```
 
 ## Running the tests
 
@@ -35,7 +39,3 @@ Dannielle Young & Jacob Ashe
 ## License
 
 This project is licensed under the MIT License.
-
-```
-
-```
