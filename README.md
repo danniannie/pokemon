@@ -18,8 +18,6 @@ Node - https://nodejs.org/en/
 
 Inquirier - https://www.npmjs.com/package/inquirer
 
-```
-
 ## Running the tests
 
 To run tests you will need to have mocha and chai installed on your system which are listed dependencies.
@@ -37,4 +35,7 @@ Dannielle Young & Jacob Ashe
 ## License
 
 This project is licensed under the MIT License.
+
+```
+
 ```
