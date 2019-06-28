@@ -1,55 +1,40 @@
-Project Title
-Pokemon Battler provides a simplifed version of the well-known Pokemon game in which two players can battle their Pokemon to see who is the _very best_. This was created using pair programming.
+# Pokemon Battler
 
-Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Pokemon Battler provides a simplifed version of the well-known Pokemon game in which two players can battle their Pokemon to see who is the _very best_. This was created using pair programming during the fundamentals stage of Northcoders coding bootcamp.
 
-Prerequisites
-What things you need to install the software and how to install them
+## Getting Started
 
-Give examples
-Installing
-A step by step series of examples that tell you how to get a development env running
+Clone this repository on your local machine.
 
-Say what the step will be
+When you are in the repo, npm i to install the relevant dependencies.
 
-Give the example
-And repeat
+When you would like to play, use the script: npm start
 
-until finished
-End with an example of getting some data out of the system or using it for a little demo
+### Prerequisites
 
-Running the tests
-Explain how to run the automated tests for this system
+To run this you will need:
 
-Break down into end to end tests
-Explain what these tests test and why
+Node - https://nodejs.org/en/
 
-Give an example
-And coding style tests
-Explain what these tests test and why
+Inquirier - https://www.npmjs.com/package/inquirer
 
-Give an example
-Deployment
-Add additional notes about how to deploy this on a live system
+```
 
-Built With
-Dropwizard - The web framework used
-Maven - Dependency Management
-ROME - Used to generate RSS Feeds
-Contributing
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
+## Running the tests
 
-Versioning
-We use SemVer for versioning. For the versions available, see the tags on this repository.
+To run tests you will need to have mocha and chai installed on your system which are listed dependencies.
 
-Authors
-Danni Young & Jacob
+When you have these installed, use the script: npm test.
 
-License
-This project is licensed under the MIT License - see the LICENSE.md file for details
+## Built With
 
-Acknowledgments
-Hat tip to anyone whose code was used
-Inspiration
-etc
+Vanilla JS
+
+## Authors
+
+Dannielle Young & Jacob Ashe
+
+## License
+
+This project is licensed under the MIT License.
+```

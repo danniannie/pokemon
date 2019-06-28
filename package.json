@@ -4,7 +4,8 @@
   "description": "",
   "main": ".eslintrc.js",
   "scripts": {
-    "test": "mocha spec"
+    "test": "mocha spec",
+    "start": "node game.js"
   },
   "repository": {
     "type": "git",
